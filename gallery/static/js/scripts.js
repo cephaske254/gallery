@@ -14,9 +14,4 @@ $(document).ready(function () {
                 $(this).find('.controls, .caption').slideUp()
             }
         })
-
-    $('.copy-link').click(function(){
-       link = $(this).attr('data-for')
-       console.log(link)
-    })
 })

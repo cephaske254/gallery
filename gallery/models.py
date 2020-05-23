@@ -1,4 +1,6 @@
 from django.db import models
+import pyperclip
+
 # Create your models here.
 class Location(models.Model):
     location = models.CharField(max_length=30)
@@ -43,3 +45,7 @@ class Post(models.Model):
     def filter_by_location(self,location):
         post = Post.objects.filter(image_location=location)
         return post
+    
+    def copy_link(cls, id):
+        post = cls.get_image_by_id(id)
+        location = post.image_location
