@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content%}
+{% include 'category_nav.html' %}
+<div class="container-fluid justify-content-center">
+    <div class="row">
+    {% include 'includes/photo_card.html' %}
+    </div>
+</div>
+{% endblock content%}
