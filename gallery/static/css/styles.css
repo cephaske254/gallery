@@ -23,12 +23,14 @@
     background: rgba(0, 0, 0, 0.527);
     color: rgba(255, 255, 255, 0.87);
     font-weight: 700;
+    display: none;
 }
 .category, .location{
     font-size: large;
     color: rgba(255, 255, 255, 0.87);
     text-shadow:2px 2px 1px #181818;
     font-weight: bold;
+    text-transform: capitalize;
 }
 .location {
     right: 1px;
@@ -39,14 +41,18 @@
 .card{
     height: 100%;
     background: transparent;
+    cursor: pointer;
 }
 .controls {
-    display: flex;
+    display: none;
     align-items: center;
    justify-content: center;
-   color: rgba(255, 255, 255, 0.87);
 }
+.controls .btn{
+   color: rgba(255, 255, 255, 0.87) !important;
+   background: rgba(0, 0, 0, 0.527);
 
+}
 .full {
     position: fixed; top: 0;
     z-index: 100000;
@@ -59,8 +65,7 @@
     margin: auto;
 }
 .full .controls {
-    /* display: block !important; */
-    /* position: relative !important; */
+    display: flex;
     align-items: flex-start;
 
 }

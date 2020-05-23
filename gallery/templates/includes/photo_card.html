@@ -1,24 +1,33 @@
 <div class="row justify-content-center">
-    <div class="p-2 full">
+    {% for post in posts %}
+    <div class="p-2 col-sm-8 col-md-6 col-lg-4 photo-cont" id='post_{{post.id}}'>
         <div class="card">
             <span class="position-absolute category">
-                <i class="fas fa-hashtag"></i> Travel
+                <i class="fas fa-hashtag"></i> {{post.image_category.first}}
             </span>
             <span class="position-absolute location">
-                <i class="fas fa-map-marker-alt"></i> Nairobi
+                <i class="fas fa-map-marker-alt"></i> {{post.image_location}}
             </span>
-            <img src="https://wallpapercave.com/wp/jiJZXEJ.jpg" alt="" class="card-img-top ">
-            <div class="card-title h5 position-absolute caption">Desc Limit 10</div>
+            <img src="{{ post.image.url }}" alt="" class="card-img-top img-fluid ">
+            <div class="card-title caption h5 position-absolute">
+                <span class="m-auto">{{post.image_caption}}
+                </span>
+            </div>
             <div class="controls position-absolute h-100 w-100">
-                <span class="full-screen">
-                    <i class="fas fa-expand fa-lg"></i>
-                </span>
-                <span class="copy-link">
-                    <i class="fas fa-copy fa-lg"></i>
-                </span>
+                <div class="btn-group">
+                    <span class="full-screen btn">
+                        <i class="fas fa-expand fa-lg"></i>
+                    </span>
+                    <span class="copy-link btn" data-for="post_{{post.id}}">
+                        <i class="fas fa-copy fa-lg"></i>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+    {% empty %}
+    <p class="text-center">Gallery is empty :)</p>
+    {% endfor %}
 </div>
 
 <!-- col-sm-8 col-md-6 col-lg-4 -->
