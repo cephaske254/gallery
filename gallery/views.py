@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.http import HttpRequest, request
 # Create your views here.
 
 def index(request):

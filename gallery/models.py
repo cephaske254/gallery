@@ -27,7 +27,10 @@ class Post(models.Model):
 
     @classmethod
     def get_all(cls):
-        return cls.objects.all()
+        all=cls.objects.all()
+        for one in all:
+            print(one.image.url)
+        return all 
 
     def save_post(self):
         self.save()
@@ -47,7 +50,10 @@ class Post(models.Model):
         post = Post.objects.filter(image_location=location)
         return post
     
-    def copy_link(cls, id):
+    def copy_link(cls, host,id):
         post = cls.get_image_by_id(id)
-        location = post.image_location
+        location = post.image_location.url
+        link=host+location
+        pyperclip.copy(link)
+
 
