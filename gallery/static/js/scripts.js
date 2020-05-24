@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $('.photo-cont').hover(function () {
         if (!$(this).hasClass('full')) {
-            $(this).find('.controls, .caption').fadeIn().css({'display':'flex','text-align':'center'})
+            $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
         }
     },
         function () {
@@ -14,4 +14,20 @@ $(document).ready(function () {
                 $(this).find('.controls, .caption').slideUp()
             }
         })
+
+    // auto dissmiss alert
+    window.setTimeout(function () {
+        $(".alert").slideUp(500, function () {
+            $(this).remove();
+        });
+    },2500)
+
+    function setLink() {
+      if($('a[href="'+window.location+'"]').toArray().length >0){
+          console.log('more')
+      }else{
+        $('a[href="/"]').addClass('active')
+      }
+    }
+    setLink()
 })

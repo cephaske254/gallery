@@ -18,9 +18,9 @@
                     <span class="full-screen btn">
                         <i class="fas fa-expand fa-lg"></i>
                     </span>
-                    <span class="copy-link btn" data-for="post_{{post.id}}">
+                    <a href="{% url 'copy_link' post.id %}" class="copy-link btn" data-for="post_{{post.id}}">
                         <i class="fas fa-copy fa-lg"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
         </div>

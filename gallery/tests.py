@@ -23,7 +23,7 @@ class GalleryTestClass(TestCase):
         self.assertTrue(len(post)== 1)
     
     def test_get_image_by_id(self):
-        post = Post.objects.filter(pk=1)
+        post = Post.get_image_by_id(1)
         self.assertEqual(len(post),1)
 
     def test_filter_by_location(self):

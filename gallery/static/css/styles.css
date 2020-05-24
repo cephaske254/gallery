@@ -7,6 +7,7 @@
 }
 .search-form input{
     background: transparent !important;
+    color: black !important;
 }
 .search-form button{
     background: #181818 !important;
@@ -74,4 +75,12 @@
     background-color: transparent;
     text-shadow: 3px 3px rgba(0, 0, 0, 0.527);
     font-size: x-large !important;
+}
+
+.alert.alert-dismissable, .on-top {
+    z-index: 1;
+}
+
+.active {
+    border-bottom: 3px solid crimson;
 }

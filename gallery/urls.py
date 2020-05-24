@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns =[
     path('',views.index, name='index'),
-    path('search',views.index, name='search')
+    path('search',views.index, name='search'),
+    path('copy_link/<int:id>',views.copy_link, name='copy_link'),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

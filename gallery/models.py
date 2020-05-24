@@ -50,10 +50,12 @@ class Post(models.Model):
         post = Post.objects.filter(image_location=location)
         return post
     
+    @classmethod
     def copy_link(cls, host,id):
-        post = cls.get_image_by_id(id)
-        location = post.image_location.url
+        post = cls.objects.filter(pk=id).first()
+        location = post.image.url
         link=host+location
         pyperclip.copy(link)
+        return link
 
 

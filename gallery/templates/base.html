@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,30 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
 </head>
-<body>
-{% block navbar %}
-    {% include 'navbar.html' %}
-{% endblock %}
-{% block content %}
 
-{% endblock content %}
+<body>
+    {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% block messages %}
+    {% if messages %}
+    <div class="container bg-white on-top">
+        <div class="row justify-content-center small">
+            {% for message in messages %}
+            <div class="alert col-sm-10 col-md-8 position-absolute  alert-dismissable {{ message.tags }}">
+                {{ message | safe}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endblock %}
+
+
+    {% block content %}
+
+    {% endblock content %}
 </body>
+
 </html>
