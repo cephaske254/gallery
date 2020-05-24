@@ -1,4 +1,5 @@
 from django.db import models
+from photogallery.settings import MEDIA_URL
 import pyperclip
 
 # Create your models here.
@@ -49,3 +50,4 @@ class Post(models.Model):
     def copy_link(cls, id):
         post = cls.get_image_by_id(id)
         location = post.image_location
+
