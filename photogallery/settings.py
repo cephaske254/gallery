@@ -1,5 +1,6 @@
 import os
 import dj_database_url, django_heroku
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -9,11 +10,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rx!9rgckl$+7bghs&o93)e8bew2v%p4om(*8g97#w5^fh_wfcd'
+SECRET_KEY = config('SECRET_KEY')
+DEBUG= config('DEBUG=False', default=True, cast=bool)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG=False
 
 
 ALLOWED_HOSTS = ['*']
