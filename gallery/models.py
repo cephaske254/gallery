@@ -57,6 +57,7 @@ class Post(models.Model):
     def filter_by_category(cls,category):
         category_ = Category.objects.filter(category=category).first()
         posts = cls.objects.filter(image_category=category_.id)
+        print(category)
         return posts
     
     @classmethod
