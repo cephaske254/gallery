@@ -26,13 +26,15 @@ def index(request, category=None, location=None):
 
 
 def search_results(request):
+    title= 'Fl Gallery | Search'
     if request.GET and request.GET['search']:
         search_res = Post.search_image(request.GET['search'])
         info = 'Search Results'
-        return render(request,'search.html', {'info':info,'posts':search_res})
+        title= f'Fl Gallery | Search {request.GET["search"]}'
+        return render(request,'search.html', {'info':info,'posts':search_res,'title':title})
     else:
         info = 'OOPS! Did you enter any keyword?'
-        return render(request,'search.html', {'info':info})
+        return render(request,'search.html', {'info':info,'title':title})
 
 
 def copy_link(request, id):
