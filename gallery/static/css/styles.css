@@ -84,9 +84,6 @@
     z-index: 1;
 }
 
-.active {
-    border-bottom: 3px solid crimson;
-}
 .alert {
     z-index: 2 !important;
 }
