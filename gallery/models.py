@@ -38,8 +38,9 @@ class Post(models.Model):
     def delete_post(self):
         self.new_post.delete()
     
-    def search_image(category):
-        post = Post.objects.filter(image_category=category)
+    def search_image(search):
+        post = Post.objects.filter(image_caption__icontains=search)
+        print(len(post))
         return post
     
     def get_image_by_id(id):

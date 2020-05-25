@@ -9,9 +9,9 @@
                 <a href="/" class="nav-link">HOME</a>
             </li>
         </ul>
-        <form action="" class="form-inline search-form col-md-4">
+        <form action="{% url 'search' %}" class="form-inline search-form col-md-4">
             <div class="btn-group">
-                <input type="search" placeholder="Search..." class="form-control form-control-sm btn">
+                <input type="search" placeholder="Search..." name="search" class="form-control form-control-sm btn">
                 <button class="btn btn-sm"><i class="fas fa-search fa-lg"></i></button>
             </div>
         </form>
