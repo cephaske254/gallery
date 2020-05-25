@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/jquery-3.5.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
 </head>
 
 <body>
@@ -25,23 +24,24 @@
     {% endblock %}
 
     {% block messages %}
-    {% if messages %}
     <div class="container bg-white on-top">
-        <div class="row justify-content-center small">
+        <div class="row justify-content-center small alert-cont">
+            {% if messages %}
             {% for message in messages %}
-            <div class="alert col-sm-10 col-md-8 position-absolute  alert-dismissable {{ message.tags }}">
-                {{ message | safe}}
+            <div class="alert col-sm-10 col-md-8 position-absolute alert-dismissable {{ message.tags }}">
+                {{ message | safe}} <span class="close"><i class="fas fa-times"></i></span>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
     </div>
-    {% endif %}
     {% endblock %}
 
 
     {% block content %}
 
     {% endblock content %}
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>

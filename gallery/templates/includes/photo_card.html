@@ -1,4 +1,5 @@
 <div class="row justify-content-center">
+    <input type="text" name="link_inp" class="collapse">
     {% for post in posts %}
     <div class="p-2 col-sm-8 col-md-6 col-lg-4 photo-cont" id='post_{{post.id}}'>
         <div class="card">
@@ -8,7 +9,7 @@
             <a href="{% url 'location' post.image_location %}" class="position-absolute location">
                 <i class="fas fa-map-marker-alt"></i> {{post.image_location}}
             </a>
-            <img src="{{ post.image.url }}" alt="" class="card-img-top img-fluid ">
+            <img src="{{ post.image.url }}" alt="" class="card-img-top w-100">
             <div class="card-title caption h5 position-absolute">
                 <span class="m-auto">{{post.image_caption}}
                 </span>
@@ -18,9 +19,9 @@
                     <span class="full-screen btn">
                         <i class="fas fa-expand fa-lg"></i>
                     </span>
-                    <a href="{% url 'copy_link' post.id %}" class="copy-link btn" data-for="post_{{post.id}}">
+                    <span class="copy-link btn" id="copy_image_{{post.id}}">
                         <i class="fas fa-copy fa-lg"></i>
-                    </a>
+                    </span>
                 </div>
             </div>
         </div>

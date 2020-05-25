@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, Http404
 from .models import Post,Category
-from django.http import HttpRequest, request
+from django.http import HttpRequest, request, HttpResponse
 from django.contrib import messages
 # Create your views here.
 
@@ -40,5 +40,5 @@ def search_results(request):
 def copy_link(request, id):
     host = HttpRequest.get_host(request)
     link = Post.copy_link(host,id)
-    return link
+    return HttpResponse(link)
 

@@ -74,7 +74,7 @@ class Post(models.Model):
         post = cls.objects.filter(pk=id).first()
         location = post.image.url
         link=host+location
-        pyperclip.copy(link)
+        # pyperclip.copy(link)
         return link
 
 

@@ -4,6 +4,25 @@ $(document).ready(function () {
         target.toggleClass("full col-sm-12  col-md-12  col-lg-12")
     })
 
+    $('span.copy-link').click(function () {
+        id = $(this).attr('id').replace('copy_image_', '')
+        $.get(`/copy_link/${id}`,function(data){
+            input = $('input[name=link_inp]')
+            input.val(data)
+            input.select()
+            if(document.execCommand('copy')){
+                $('.alert-cont').append(`
+                <div class="alert col-sm-8 col-md-6 position-absolute alert-dismissable alert-success">
+                    <span class="close btn text-danger" data-dismiss="alert">
+                        <i class="fas fa-times-circle"></i>
+                    </span>
+                    Copied <span class='alert-link'>${data}</span> successfully!
+                </div>
+                `)
+            }
+        })
+    })
+
     $('.photo-cont').hover(function () {
         if (!$(this).hasClass('full')) {
             $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
@@ -22,12 +41,5 @@ $(document).ready(function () {
         });
     },2500)
 
-    // function setLink() {
-    //   if($('a[href="'+window.location+'"]').toArray().length >0){
-    //       console.log('more')
-    //   }else{
-    //     $('a[href="/"]').addClass('active')
-    //   }
-    // }
-    // setLink()
+
 })
