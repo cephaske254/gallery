@@ -21,24 +21,25 @@ $(document).ready(function () {
                 `)
 
         })
-
-        $('.photo-cont').hover(function () {
-            if (!$(this).hasClass('full')) {
-                $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
-            }
-        },
-            function () {
-                if (!$(this).hasClass('full')) {
-                    $(this).find('.controls, .caption').slideUp()
-                }
-            })
-
-        // auto dissmiss alert
-        window.setTimeout(function () {
-            $(".alert").slideUp(500, function () {
-                $(this).remove();
-            });
-        }, 2500)
-
-
     })
+
+    $('.photo-cont').hover(function () {
+        if (!$(this).hasClass('full')) {
+            $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
+        }
+    },
+        function () {
+            if (!$(this).hasClass('full')) {
+                $(this).find('.controls, .caption').slideUp()
+            }
+        })
+
+    // auto dissmiss alert
+    window.setTimeout(function () {
+        $(".alert").slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 2500)
+
+
+})
