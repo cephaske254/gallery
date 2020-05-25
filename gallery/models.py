@@ -12,6 +12,10 @@ class Location(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=30)
 
+    @classmethod
+    def get_all(cls):
+        return cls.objects.all()
+
     def __str__(self):
         return self.category
 
@@ -57,7 +61,12 @@ class Post(models.Model):
     def filter_by_category(cls,category):
         category_ = Category.objects.filter(category=category).first()
         posts = cls.objects.filter(image_category=category_.id)
-        print(category)
+        return posts
+
+    @classmethod
+    def filter_by_location(cls,location):
+        location_ = Location.objects.filter(location=location).first()
+        posts = cls.objects.filter(image_location=location_.id)
         return posts
     
     @classmethod

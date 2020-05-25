@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns =[
     path('',views.index, name='index'),
-    path('<category>/',views.index, name='category'),
+    path('cat/<category>/',views.index, name='category'),
     path('pin/<location>/',views.index, name='location'),
     path('search/',views.search_results, name='search'),
     path('copy_link/<int:id>',views.copy_link, name='copy_link'),

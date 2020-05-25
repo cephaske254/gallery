@@ -1,19 +1,27 @@
 from django.shortcuts import render, redirect, Http404
-from .models import Post
+from .models import Post,Category
 from django.http import HttpRequest, request
 from django.contrib import messages
 # Create your views here.
 
 def index(request, category=None, location=None):
+    categories = Category.get_all()
+    title = 'Home | Fl Gallery'
     posts = Post.get_all()
     if category:
         try: 
             posts = Post.filter_by_category(category)
+            title = f'Fl Gallery | Category {category}'
         except:
             raise Http404()
+    elif location:
+        posts = Post.filter_by_location(location)
+        title = f'Fl Gallery | Location {location}'
+
     return render(request,'index.html',{
-        'title':'Home | FL Gallery',
-        'posts': posts
+        'title':title,
+        'posts': posts,
+        'categories':categories
     })
 
 

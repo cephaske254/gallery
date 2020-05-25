@@ -2,12 +2,12 @@
     {% for post in posts %}
     <div class="p-2 col-sm-8 col-md-6 col-lg-4 photo-cont" id='post_{{post.id}}'>
         <div class="card">
-            <span class="position-absolute category">
+            <a href="{% url 'category' post.image_category.first %}" class="position-absolute category">
                 <i class="fas fa-hashtag"></i> {{post.image_category.first}}
-            </span>
-            <span class="position-absolute location">
+            </a>
+            <a href="{% url 'location' post.image_location %}" class="position-absolute location">
                 <i class="fas fa-map-marker-alt"></i> {{post.image_location}}
-            </span>
+            </a>
             <img src="{{ post.image.url }}" alt="" class="card-img-top img-fluid ">
             <div class="card-title caption h5 position-absolute">
                 <span class="m-auto">{{post.image_caption}}

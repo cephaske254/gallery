@@ -28,9 +28,12 @@
 }
 .category, .location{
     font-size: large;
-    color: rgba(255, 255, 255, 0.87);
+    color: rgba(255, 255, 255, 0.87) !important;
+    text-decoration: none !important;
     text-shadow:2px 2px 1px #181818;
     font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
     text-transform: capitalize;
 }
 .location {
@@ -42,7 +45,6 @@
 .card{
     height: 100%;
     background: transparent;
-    cursor: pointer;
 }
 .controls {
     display: none;

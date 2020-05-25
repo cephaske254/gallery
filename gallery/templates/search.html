@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
 <div class="container-fluid justify-content-center">
+    <p class="text-center h5">Found {{posts |length }} containing that keyword.</p>
     {% include 'includes/photo_card.html' %}
 </div>
 {% endblock content%}

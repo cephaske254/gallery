@@ -22,12 +22,12 @@ $(document).ready(function () {
         });
     },2500)
 
-    function setLink() {
-      if($('a[href="'+window.location+'"]').toArray().length >0){
-          console.log('more')
-      }else{
-        $('a[href="/"]').addClass('active')
-      }
-    }
-    setLink()
+    // function setLink() {
+    //   if($('a[href="'+window.location+'"]').toArray().length >0){
+    //       console.log('more')
+    //   }else{
+    //     $('a[href="/"]').addClass('active')
+    //   }
+    // }
+    // setLink()
 })
