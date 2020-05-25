@@ -38,17 +38,26 @@ class Post(models.Model):
     def delete_post(self):
         self.new_post.delete()
     
-    def search_image(search):
-        post = Post.objects.filter(image_caption__icontains=search)
+    @classmethod
+    def search_image(cls,search):
+        post = cls.objects.filter(image_caption__icontains=search)
         print(len(post))
         return post
     
-    def get_image_by_id(id):
-        return Post.objects.filter(pk=id).first()
+    @classmethod
+    def get_image_by_id(icls,d):
+        return cls.objects.filter(pk=id).first()
 
-    def filter_by_location(location):
-        post = Post.objects.filter(image_location=location)
+    @classmethod
+    def filter_by_location(cls,location):
+        post = cls.objects.filter(image_location=location)
         return post
+
+    @classmethod
+    def filter_by_category(cls,category):
+        category_ = Category.objects.filter(category=category).first()
+        posts = cls.objects.filter(image_category=category_.id)
+        return posts
     
     @classmethod
     def copy_link(cls, host,id):

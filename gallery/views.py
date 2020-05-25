@@ -4,13 +4,16 @@ from django.http import HttpRequest, request
 from django.contrib import messages
 # Create your views here.
 
-def index(request):
-    posts = Post.get_all()
-
+def index(request, category=None):
+    if category:
+        posts = Post.get_all()
+    else:
+        posts = Post.get_all()
     return render(request,'index.html',{
         'title':'Home | FL Gallery',
         'posts': posts
     })
+
 
 def search_results(request):
     if request.GET and request.GET['search']:
