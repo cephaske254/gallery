@@ -38,15 +38,14 @@ class Post(models.Model):
     def delete_post(self):
         self.new_post.delete()
     
-    def search_image(self,category):
+    def search_image(category):
         post = Post.objects.filter(image_category=category)
         return post
     
-    def get_image_by_id(self,id):
-        post = Post.objects.filter(pk=id)
-        return post
+    def get_image_by_id(id):
+        return Post.objects.filter(pk=id).first()
 
-    def filter_by_location(self,location):
+    def filter_by_location(location):
         post = Post.objects.filter(image_location=location)
         return post
     
