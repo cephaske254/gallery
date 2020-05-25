@@ -6,12 +6,12 @@ $(document).ready(function () {
 
     $('span.copy-link').click(function () {
         id = $(this).attr('id').replace('copy_image_', '')
-        $.get(`/copy_link/${id}`,function(data){
+        $.get(`/copy_link/${id}`, function (data) {
             input = $('input[name=link_inp]')
             input.val(data)
             input.select()
-            if(document.execCommand('copy')){
-                $('.alert-cont').append(`
+            document.execCommand('copy')
+            $('.alert-cont').append(`
                 <div class="alert col-sm-8 col-md-6 position-absolute alert-dismissable alert-success">
                     <span class="close btn text-danger" data-dismiss="alert">
                         <i class="fas fa-times-circle"></i>
@@ -19,27 +19,26 @@ $(document).ready(function () {
                     Copied <span class='alert-link'>${data}</span> successfully!
                 </div>
                 `)
-            }
-        })
-    })
 
-    $('.photo-cont').hover(function () {
-        if (!$(this).hasClass('full')) {
-            $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
-        }
-    },
-        function () {
+        })
+
+        $('.photo-cont').hover(function () {
             if (!$(this).hasClass('full')) {
-                $(this).find('.controls, .caption').slideUp()
+                $(this).find('.controls, .caption').fadeIn().css({ 'display': 'flex', 'text-align': 'center' })
             }
-        })
+        },
+            function () {
+                if (!$(this).hasClass('full')) {
+                    $(this).find('.controls, .caption').slideUp()
+                }
+            })
 
-    // auto dissmiss alert
-    window.setTimeout(function () {
-        $(".alert").slideUp(500, function () {
-            $(this).remove();
-        });
-    },2500)
+        // auto dissmiss alert
+        window.setTimeout(function () {
+            $(".alert").slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 2500)
 
 
-})
+    })
