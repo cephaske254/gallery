@@ -12,7 +12,7 @@ $(document).ready(function () {
             input.select()
             document.execCommand('copy')
             $('.alert-cont').append(`
-                <div class="alert col-sm-8 col-md-6 position-absolute alert-dismissable alert-success">
+                <div class="alert col-sm-8 col-md-6 position-fixed alert-dismissable alert-success">
                     <span class="close btn text-danger" data-dismiss="alert">
                         <i class="fas fa-times-circle"></i>
                     </span>
