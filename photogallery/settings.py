@@ -13,7 +13,7 @@ SECRET_KEY = 'rx!9rgckl$+7bghs&o93)e8bew2v%p4om(*8g97#w5^fh_wfcd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG=True
+DEBUG=False
 
 
 ALLOWED_HOSTS = ['*']
@@ -116,6 +116,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles') #Heroku static
 #  Add configuration for static files storage using whitenoise
+STATTICFILES_DIR =[
+    os.path.join(BASE_DIR, 'static')
+]
 STATICFILES_STORAGE = 'whitenoise.django.CompressedManifestStaticFilesStorage'
 
 
