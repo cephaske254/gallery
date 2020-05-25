@@ -80,10 +80,6 @@
     font-size: x-large !important;
 }
 
-.alert.alert-dismissable, .on-top {
-    z-index: 1;
-}
-
 .alert {
     z-index: 2 !important;
 }
