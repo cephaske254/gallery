@@ -40,8 +40,5 @@ def search_results(request):
 def copy_link(request, id):
     host = HttpRequest.get_host(request)
     link = Post.copy_link(host,id)
-    messages.add_message(request,messages.SUCCESS, f'Copied <span class="alert-link">{link}</span> to clipboard!',extra_tags='alert-success',fail_silently=True,)
-    if(request.META['HTTP_REFERER']):
-        return redirect(request.META['HTTP_REFERER'])
-    else :
-        return redirect('../')
+    return link
+
